@@ -1,0 +1,53 @@
+zad 1=======================================================
+START 0 > START 0 R
+START 1 > START 0 R
+START = > START 0 R
+
+=1=1=1=1=1=1==00=01=10=10=10=
+
+
+zad 2 =====================================================
+START 0 > S1 0 R
+START 1 > S1 0 R
+START = > S1 0 R
+S1 0 > S2 1 R
+S1 1 > S2 1 R
+S1 = > S2 1 R
+S2 0 > S1 0 R
+S2 1 > S1 0 R
+S2 = > S1 0 R
+
+
+0=0=10=1=10=10=10===1010==
+zad 3=========================================================
+START 0 > START 0 R
+START 1 > START 1 R
+START = > START 1 R
+
+ciąg '1' poprzedza znak '=' a znak '0' jest separatorem 
+
+=10=10=10=10=10=1000=10=10=10=10
+
+
+
+zad 4 ====================================
+=====================
+
+START 0 > START 0 R
+START 1 > S1 1 R
+START = > START = R
+S1 1 > S2 1 R
+S1 0 > START 0 R
+S1 = > START = R
+S2 1 > S3 1 R
+S2 0 > START 0 R
+S2 = > START = R
+S3 1 > S3 1 R
+S3 0 > S4 0 L
+S3 = > S4 = L
+S4 1 > S5 1 L
+S5 1 > S6 1 L
+S6 1 > START 0 R
+
+
+11111111=0000101010101010111=======111
