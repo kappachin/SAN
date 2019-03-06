@@ -17,6 +17,7 @@ public class Logic {
         int input = wejscie.nextInt();
         tablica[i] = input;
         System.out.println(tablica[i]);
+        //txt
         }
     }
 
