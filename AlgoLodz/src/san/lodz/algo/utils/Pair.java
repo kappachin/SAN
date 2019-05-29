@@ -1,8 +1,8 @@
 package san.lodz.algo.utils;
 
 public class Pair {
-    int a;
-    int b;
+    int a ;
+    int b ;
 
     Pair(int a, int b)
     {

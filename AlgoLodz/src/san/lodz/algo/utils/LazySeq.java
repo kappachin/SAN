@@ -16,26 +16,6 @@ public class LazySeq<T> implements Seq<T> {
         this.rest  = delay(rest);
     }
 
-    @Override
-    public T first() {
-        return this.first;
-    }
-
-    @Override
-    public Seq<T> rest() {
-        return this.rest.call();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public Seq<T> cons(T e) {
-        return new LazySeq<>(e, delay(() -> this));
-    }
-
     static <T> LazySeq<T> iterate(Unary<T, T> f, T start) {
         return new LazySeq<>(start, () -> iterate(f, f.call(start)));
     }
@@ -55,5 +35,25 @@ public class LazySeq<T> implements Seq<T> {
             return s;
 
         return new LazySeq<>(s.first(), () -> take(n - 1, s.rest()));
+    }
+
+    @Override
+    public T first() {
+        return this.first;
+    }
+
+    @Override
+    public Seq<T> rest() {
+        return this.rest.call();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public Seq<T> cons(T e) {
+        return new LazySeq<>(e, delay(() -> this));
     }
 }

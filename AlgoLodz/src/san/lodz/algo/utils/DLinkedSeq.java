@@ -19,6 +19,19 @@ public class DLinkedSeq<T> {
         }
     }
 
+    public int indexOf(T node) {
+        int i = 0;
+        Node current = this.head;
+        while (current != null) {
+            if (current.value == node)
+                return i;
+            current = current.right;
+            i++;
+        }
+        return -1;
+    }
+
+
     public void addTail(T x) {
         Node node = new Node(null, null, x);
         if (isEmpty()) {
@@ -56,62 +69,50 @@ public class DLinkedSeq<T> {
         }
     }
 
-    public int indexOf(T v) {
-        int i = 0;
-        Node current = this.head;
-        while(current != null)
-        {
-            if(current.value == v)
-                return i;
-            current = current.right;
-            i++;
-        }
-        return -1;
-    }
 
-    public boolean addBefore(int index,T value) {
+    public boolean addBefore(int index, T value) {
         int i = 0;
-        Node current = this.head;
-        Node newOne = new Node(null,null, value);
-        while(null != current) {
-            if(i == index){
-                newOne.right = current;
-                if((newOne.left = current.left) != null){
-                    current.left.right = newOne;
-                }else {
-                    head = newOne;
+        Node obecny = this.head;
+        Node nowy = new Node(null, null, value);
+        while (null != obecny) {
+            if (i == index) {
+                nowy.right = obecny;
+                if ((nowy.left = obecny.left) != null) {
+                    obecny.left.right = nowy;
+                } else {
+                    head = nowy;
                 }
-                current.left = newOne;
+                obecny.left = nowy;
                 return true;
             }
-            current = current.right;
+            obecny = obecny.right;
             i++;
         }
         return false;
     }
 
-    public boolean addAfter(int index,T value) {
+    public boolean addAfter(int index, T value) {
         int i = 0;
-        Node current = this.head;
-        Node newOne = new Node(null,null, value);
-        while(null != current) {
-            if(i == index){
-                newOne.left = current;
-                if((newOne.right = current.right) != null){
-                    current.right.left = newOne;
-                }else{
-                    tail = newOne;
+        Node obecny = this.head;
+        Node nowy = new Node(null, null, value);
+        while (null != obecny) {
+            if (i == index) {
+                nowy.left = obecny;
+                if ((nowy.right = obecny.right) != null) {
+                    obecny.right.left = nowy;
+                } else {
+                    tail = nowy;
                 }
-                current.right = newOne;
+                obecny.right = nowy;
                 return true;
             }
-            current = current.right;
+            obecny = obecny.right;
             i++;
         }
         return false;
     }
 
-    public boolean delete(int index) {
+   /* public boolean delete(int index) {
         int i = 0;
         Node current = this.head;
         while(null != current) {
@@ -136,7 +137,7 @@ public class DLinkedSeq<T> {
         }
         return false;
     }
-
+*/
     public void forEachReverse(Binary<T, Boolean, Void> body) {
         Node current = this.tail;
         while(null != current) {

@@ -11,12 +11,14 @@ public class TestDLinkedSeq {
         s.addTail("b");
         s.addTail("c");
         s.addTail("d");
-        s.addTail("b");
+
 
         System.out.println(s.head());
         System.out.println(s.tail());
         System.out.println(s.asString());
         System.out.println(s.indexOf("b"));
+        s.addAfter(1,"o");
+        System.out.println(s.asString());
     }
 
 }
